@@ -19,8 +19,8 @@
                     </div>
                 </div>
             </div>
-            <div class="flex" style="text-align: left;">
-                <div class="currentDuration">
+            <div class="flex">
+                <div class="currentDuration" style="text-align: left;">
                   0:00
                 </div>
                 <div class="flex" style="text-align: center;">
@@ -39,19 +39,23 @@
                     </div>
                 </div>
             </div>
-              <div class="flex">
-                  <div class="p-2 w-8 flex-shrink-o">Play</div>
+            {% for music in music%}
+                  <div class="card">
+                      <button style="width: 50px; height: 50px; text-align: right;">Play</button>
+                      <div class="flex">
+                        {{music.artist}} - {{music.title}}
+                      </div>
+                      <div class="text-xs text-gray-400" style="text-align: left;">
+                        {{music.time_length}}
+                      </div>
+                      
+                      <button style="width: 50px; height: 50px; text-align: left;">Load</button> 
+            {%endfor%}
 
-              </div>
+                  </div>
 
-            
-                
         </div>
-
     </div>
-     
-
-    
 </div>
 
 {%endblock%}
