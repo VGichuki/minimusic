@@ -1,4 +1,5 @@
 {%load bootstrap4 %}
+{% load tailwind_tags %}
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,8 @@
   {% else %}
     <title> Hood</title>
   {% endif %}
-
+  
+  {% tailwind_css %}
   {% block styles %}
   {% bootstrap_css %}
   {% endblock %}

@@ -1,6 +1,12 @@
 {% extends 'base.html'%}
 
 {%block content%}
-{{block.super}}
-<h1 class="text-center">MiniMusic</h1>
+<div class="container">
+    <h1 class="text-center">MiniMusic</h1>
+    <div class="row">
+        {% for music in music%}
+        {%endfor%}
+    </div>
+
+</div>
 {%endblock%}
