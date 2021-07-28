@@ -1,3 +1,4 @@
+from mini.helpers import get_audio_length
 from django.db import models
 
 # Create your models here.
@@ -15,7 +16,8 @@ class Music(models.Model):
     def save(self, *args, **kwargs):
         if not self.time_length:
             #Login for getting music length
-            pass
+            audio_length = get_audio_length(self.audio_file)
+            self.time_length = audio_length
         return super().save(*args, **kwargs)
 
 class Album(models.Model):
