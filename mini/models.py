@@ -1,3 +1,4 @@
+from mini.validators import validate_audio
 from mini.helpers import get_audio_length
 from django.db import models
 
@@ -7,7 +8,7 @@ class Music(models.Model):
     artist = models.CharField(max_length=500)
     album = models.ForeignKey('Album',null=True, blank=True, on_delete=models.SET_NULL)
     time_length = models.DecimalField(max_digits=50,decimal_places=2,blank=True)
-    audio_file = models.FileField(upload_to='musics')
+    audio_file = models.FileField(upload_to='musics', validators=[validate_audio])
     image= models.ImageField(upload_to='music_image/')
 
     def __str__(self):
