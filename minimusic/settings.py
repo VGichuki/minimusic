@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'tailwind',
     'theme',
+    'tinymce'
 ]
 
 MIDDLEWARE = [
