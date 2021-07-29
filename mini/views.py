@@ -31,7 +31,7 @@ def newMusic(request):
                 instance.save()
             else:
                 instance.save()
-            return redirect('index')
+            return redirect('home')
     return render(request,'music.html',{'form': form})
 
 def registerPage(request):
