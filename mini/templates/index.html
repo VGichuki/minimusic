@@ -79,7 +79,27 @@
         const audio_tracks= document.querySelector('.audio-tracks')
         const artist = document.querySelector('.artist')
         
-        
+        //music indexing
+        let musicIndex=0
+
+        const musics=JSON.parse(document.getElementById('musics').textContent)
+
+        //functions
+        const setSRC=()=>{
+            player.src = '/media/${musics[musicIndex].audio_file}'
+            song_title.textContent = musics[musicIndex].title
+            artist.textContent = musics[musicIndex].artist
+        }
+
+        const pauseorplay=()=>{
+            if(player.paused){
+                player.play()
+            }else{
+                player.pause()
+            }
+        }
+
+
     </script>
     
     </div>
