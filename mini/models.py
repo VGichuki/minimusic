@@ -11,8 +11,8 @@ class Music(models.Model):
     audio_file = models.FileField(upload_to='musics', validators=[validate_audio])
     image= models.ImageField(upload_to='music_image/')
 
-    def __str__(self):
-        return self.title
+    class Meta:
+        ordering = ['-id']
 
     def save(self, *args, **kwargs):
         if not self.time_length:
@@ -20,6 +20,8 @@ class Music(models.Model):
             audio_length = get_audio_length(self.audio_file)
             self.time_length = audio_length
         return super().save(*args, **kwargs)
+
+    
 
 class Album(models.Model):
     name = models.CharField(max_length=1000)
