@@ -26,6 +26,18 @@ class Music(models.Model):
 class Album(models.Model):
     name = models.CharField(max_length=1000)
 
+class Profile(models.Model):
+    name = models.CharField(max_length=50, blank=True)
+    bio = models.TextField(max_length=300, blank=True, default='No bio')
+    profile_pic = models.ImageField(upload_to='images/', default='default.png')
+    contact = models.CharField(max_length=20, blank=True)
+
+    def __str__(self):
+        return self.user.username
+
+    def save_user_profile(self):
+        self.save()
+
 
 
 
