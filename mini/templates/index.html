@@ -38,23 +38,24 @@
             <div class="border-double border-4 border-light-blue-500">
             <ul class="text-xs sm:text-base divide-y border-t cursor-default audio-tracks">
                 {% for music in music%}
-                
-                    <button style="width: 50px; height: 50px; text-align: right;">Play</button>
+
+                <li class="flex items-center space-x-3 hover:bg-gray-100">
+                <button class="p-3 hover:bg-green-500 group focus:outline-none play_single">Play</button>
+                    
                     <div class="flex">
                       {{music.artist}} - {{music.title}}
                     </div>
                     <div class="text-xs text-gray-400" style="text-align: left ;">
                       {{music.time_length}}
                     </div>
+                    <a href="media/{{music.audio_file}}" class="focus:outline-none pr-4 group">
                     
+                    </a>
+                </li>    
           {%endfor%}
-
-
             </ul>
           
-
                   </div>
-
         </div>
 
     <audio class="audio-player" preload="metadata" autoplay="false" src="/media/musics/grace_carter_silence_mp3_72681.mp3" ></audio>
@@ -150,6 +151,38 @@
             setSRC()
             playOrpause()
         })
+
+        //activate the buttons on each song
+        audio_tracks.addEventListener('click',e=>{
+            if((e.target.nodeName=='BUTTON' && e.target.classList.contains('play_single'))||
+            (e.target.nodeName=='svg'&&e.target.classList.contains('play_svg'))){
+                let parent_cont
+                
+                if (e.target.nodeName=='BUTTON'){
+                parent_cont=e.target.parentNode
+                }
+                else{
+                    parent_cont=e.target.parentNode.parentNode
+                }
+                const newIndex=Array.from(audio_tracks.querySelectorAll('li')).indexOf(parent_cont)
+                
+                if (newIndex==musicIndex){
+                if(player.paused){
+                    
+                    player.play()
+                }else{
+                    
+                    player.pause()
+                }
+                }else{
+
+                musicIndex=newIndex
+                setSRC()
+                player.play()
+                }
+            
+            }
+            })
 
     </script>
         </div>
