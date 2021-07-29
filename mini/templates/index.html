@@ -50,7 +50,6 @@
                       {{music.time_length}}
                     </div>
                     
-                    <button style="width: 50px; height: 50px; text-align: left;">Load</button> 
           {%endfor%}
 
 
@@ -104,9 +103,9 @@
             let min = Math.floor((secs%3600)/60)
             let sec = Math.floor(secs%60)
             if (sec<10){
-                sec = '0${sec}'
+                sec = `0${sec}`
             }
-            return '${min}:{sec}'
+            return `${min}:${sec}`
         }
 
         //load music on refresh
@@ -117,6 +116,12 @@
         play.addEventListener('click',()=>{
             playOrpause()
         })
+
+        //load music minutes
+        player.addEventListener('loadedmetadata',()=>{
+            duration.textContent = player.duration
+        })
+
 
 
 
