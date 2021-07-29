@@ -24,9 +24,9 @@
                   0:00
                 </div>
                 <div class="flex" style="text-align: center;">
-                    <button style="width: 50px; height: 50px;">Prev</button>
-                    <button style="height: 50px; width: 50px;">Play</button>
-                    <button style="height: 50px; width: 50px;">Next</button>  
+                    <button style="width: 50px; height: 50px; " class="prev">Prev</button>
+                    <button style="height: 50px; width: 50px;" class="playing">Play</button>
+                    <button style="height: 50px; width: 50px;" class="next">Next</button>  
                 </div>
                 <div class="Duration" style="text-align: right;">
                   0:00
@@ -39,22 +39,49 @@
                     </div>
                 </div>
             </div>
-            {% for music in music%}
-                  <div class="card">
-                      <button style="width: 50px; height: 50px; text-align: right;">Play</button>
-                      <div class="flex">
-                        {{music.artist}} - {{music.title}}
-                      </div>
-                      <div class="text-xs text-gray-400" style="text-align: left ;">
-                        {{music.time_length}}
-                      </div>
-                      
-                      <button style="width: 50px; height: 50px; text-align: left;">Load</button> 
-            {%endfor%}
+            <ul class="text-xs sm:text-base divide-y border-t cursor-default audio-tracks">
+                {% for music in music%}
+                <div class="card">
+                    <button style="width: 50px; height: 50px; text-align: right;">Play</button>
+                    <div class="flex">
+                      {{music.artist}} - {{music.title}}
+                    </div>
+                    <div class="text-xs text-gray-400" style="text-align: left ;">
+                      {{music.time_length}}
+                    </div>
+                    
+                    <button style="width: 50px; height: 50px; text-align: left;">Load</button> 
+          {%endfor%}
+
+
+            </ul>
+          
 
                   </div>
 
         </div>
+
+    <audio class="audio-player" preload="metadata" autoplay="false" src="/media/musics/grace_carter_silence_mp3_72681.mp3" ></audio>
+
+
+    {{music_list | json_script:'musics'}}
+
+    <script>
+        const player = document.querySelector('.audio-player')
+        const play = document.querySelector('.playing')
+        const prev = document.querySelector('.prev')
+        const next = document.querySelector('.next')
+        const duration = document.querySelector('.Duration')
+        const currentTime = document.querySelector('.currentDuration')
+        const song_title = document.querySelector('.song-title')
+        const progress= document.querySelector('.progress')
+        const progress_container = document.querySelector('.progress_container')
+        const audio_tracks= document.querySelector('.audio-tracks')
+        const artist = document.querySelector('.artist')
+        
+        
+    </script>
+    
     </div>
 </div>
 
