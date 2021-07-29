@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+
+{% block content%}
+<div class="container">
+    <h2 class="text-center">New Music</h2>
+    <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-6">
+                {%csrf_token%}
+                {{form|crispy}}
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</div>
+{%endblock%}

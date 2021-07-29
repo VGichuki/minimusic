@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'tinymce',
-]
+    'crispy_forms',
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
