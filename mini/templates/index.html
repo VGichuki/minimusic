@@ -99,6 +99,15 @@
             }
         }
 
+        const timeFormat=(secs)=>{
+            let min = Math.floor((secs%3600)/60)
+            let sec = Math.floor(secs%60)
+            if (sec<10){
+                sec = '0${sec}'
+            }
+            return '${min}:{sec}'
+        }
+
 
     </script>
     
