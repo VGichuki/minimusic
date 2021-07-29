@@ -33,9 +33,9 @@ class Profile(models.Model):
     contact = models.CharField(max_length=20, blank=True)
 
     def __str__(self):
-        return self.user.username
+        return self.name
 
-    def save_user_profile(self):
+    def save_profile(self):
         self.save()
 
 
