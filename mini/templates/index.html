@@ -119,7 +119,7 @@
 
         //load music minutes
         player.addEventListener('loadedmetadata',()=>{
-            duration.textContent = player.duration
+            duration.textContent = timeFormat(player.duration)
         })
 
 
