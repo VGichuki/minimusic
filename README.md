@@ -59,6 +59,7 @@ Open the application on your browser `127.0.0.1:8000`.
 ## Known Bugs
 * The user can only forward or rewind the music using the next and prev buttons respectively
 * The music time is set in seconds rather than in minutes
+*  Heroku does not store audio files in the database
 ## License
 * *MIT License:*
 * Copyright (c) 2021 **Vivian Gichuki**
